@@ -1,11 +1,9 @@
 import Quiz from "../../Components/Quiz";
 
 export class Question{
-  qId;
   qText = "";
   qChoices = [];
-  constructor(qID, questionText, choices){
-    this.qId = qID;
+  constructor(questionText, choices){
     this.qText = questionText;
     if(choices !== null || choices !== undefined){
       choices.map(choice => {
