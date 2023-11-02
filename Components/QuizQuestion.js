@@ -1,3 +1,3 @@
-export default function Question(QuestionClassObj){
-    
+export default function QuizQuestion(QuestionClassObj){
+
 }

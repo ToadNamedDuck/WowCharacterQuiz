@@ -1,11 +1,15 @@
+import Quiz from "../../Components/Quiz";
+
 export class Question{
   qText = "";
   qChoices = [];
-  constructor(questionText, [choices]){
+  constructor(questionText, ...choices){
     this.qText = questionText;
-    choices.forEach(choice => {
-      this.qChoices.push(choice);
-    });
+    if(choices !== null || choices !== undefined){
+      choices.forEach(choice => {
+        this.qChoices.push(choice);
+      });
+    }
   }
 }
 export default function Home(){
@@ -13,5 +17,6 @@ export default function Home(){
     <h1>WoW</h1>
     <p>Balls</p>
     <input type="text"/>
+    <Quiz/>
   </>
 }
