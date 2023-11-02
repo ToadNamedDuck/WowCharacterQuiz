@@ -13,22 +13,26 @@ export default function QuizQuestion({ QuestionClassObj }) {
             QuestionClassObj !== undefined || QuestionClassObj !== null ?
                 <div class="individualQuestion">
                     <h3>{QuestionClassObj.qText}</h3>
-                    {
-                        QuestionClassObj.qChoices.map(choice => {
-                            count++;
-                            return <>
-                                <label htmlFor={"Q-"+count}>{choice}</label>
-                                <input
-                                    type="radio"
-                                    id={"Q-"+count}
-                                    name={QuestionClassObj.qText}
-                                    key={QuestionClassObj.qText + `-${count}`}
-                                    value={count}
-                                    onChange={(e) => setAnswer(parseInt(e.target.value))}
-                                />
-                            </>
-                        })
-                    }
+                    <div class="choices">
+                        {
+                            QuestionClassObj.qChoices.map(choice => {
+                                count++;
+                                return <>
+                                <div class="labelRadioCombo">
+                                    <label htmlFor={"Q-" + count}>{choice}</label>
+                                    <input
+                                        type="radio"
+                                        id={"Q-" + count}
+                                        name={QuestionClassObj.qText}
+                                        key={QuestionClassObj.qText + `-${count}`}
+                                        value={count}
+                                        onChange={(e) => setAnswer(parseInt(e.target.value))}
+                                    />
+                                </div>
+                                </>
+                            })
+                        }
+                    </div>
                 </div>
                 :
                 ""

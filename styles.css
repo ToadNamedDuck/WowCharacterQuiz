@@ -1,0 +1,12 @@
+.individualQuestion{
+    border: solid black 1px;
+}
+.choices{
+    display:flex;
+    flex-direction: column;
+}
+.labelRadioCombo{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
