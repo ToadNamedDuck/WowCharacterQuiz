@@ -6,13 +6,15 @@ import "styles.css"
 export class Question {
   qText = "";
   qChoices = [];
-  constructor(questionText, choices) {
+  stateSetter;
+  constructor(questionText, choices, stateSetterFunction) {
     this.qText = questionText;
     if (choices !== null || choices !== undefined) {
       choices.map(choice => {
         this.qChoices.push(choice);
       });
     }
+    this.stateSetter = stateSetterFunction;//Need to make states for each question we want to save.
   }
 }
 

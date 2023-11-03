@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from "react";
 
 export default function QuizQuestion({ QuestionClassObj }) {
@@ -5,7 +7,7 @@ export default function QuizQuestion({ QuestionClassObj }) {
 
     useEffect(() => {
 
-    }, [QuestionClassObj])
+    }, [selectedAnswer])
 
     let count = -1;
     return <>
@@ -18,17 +20,33 @@ export default function QuizQuestion({ QuestionClassObj }) {
                             QuestionClassObj.qChoices.map(choice => {
                                 count++;
                                 return <>
-                                <div class="labelRadioCombo">
-                                    <label htmlFor={"Q-" + count}>{choice}</label>
-                                    <input
-                                        type="radio"
-                                        id={"Q-" + count}
-                                        name={QuestionClassObj.qText}
-                                        key={QuestionClassObj.qText + `-${count}`}
-                                        value={count}
-                                        onChange={(e) => setAnswer(parseInt(e.target.value))}
-                                    />
-                                </div>
+                                {
+                                    count === 0?
+                                    <div class="labelRadioCombo">
+                                        <label htmlFor={"Q-" + count}>{choice}</label>
+                                        <input
+                                            type="radio"
+                                            id={"Q-" + count}
+                                            name={QuestionClassObj.qText}
+                                            key={QuestionClassObj.qText + `-${count}`}
+                                            value={count}
+                                            onChange={(e) => setAnswer(parseInt(e.target.value))}
+                                            defaultChecked={true}
+                                        />
+                                    </div>
+                                        :
+                                        <div class="labelRadioCombo">
+                                        <label htmlFor={"Q-" + count}>{choice}</label>
+                                        <input
+                                            type="radio"
+                                            id={"Q-" + count}
+                                            name={QuestionClassObj.qText}
+                                            key={QuestionClassObj.qText + `-${count}`}
+                                            value={count}
+                                            onChange={(e) => setAnswer(parseInt(e.target.value))}
+                                        />
+                                    </div>
+                                }
                                 </>
                             })
                         }
