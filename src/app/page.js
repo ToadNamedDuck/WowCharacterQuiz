@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from "react";
 import Quiz from "../../Components/Quiz";
 import "styles.css"
 
@@ -14,9 +15,17 @@ export class Question {
         this.qChoices.push(choice);
       });
     }
-    this.stateSetter = stateSetterFunction;//Need to make states for each question we want to save.
+    this.stateSetter = stateSetterFunction;
   }
 }
+
+// const [q1Answer, setQ1Answer] = useState(0);
+// const [q2Answer, setQ2Answer] = useState(0);
+// const [q3Answer, setQ3Answer] = useState(0);
+// const [q4Answer, setQ4Answer] = useState(0);
+// const answerStateSetters = [setQ1Answer, setQ2Answer, setQ3Answer, setQ4Answer];
+// Refactor Quiz component to accept array of state setters.
+// Quiz component will need to use the position of setters in array to assign a setter to question. I could also include a state setter in the class def tho.
 
 const q1 = new Question("Do you have a preference for Alliance or Horde?", ["For the Alliance!", "For the Horde!", "I don't care who pays me."]);
 const q2 = new Question("Do you prefer ranged or melee today?", ["Yes, definitely", "I'm not a coward", "I just want to see something die."]);
