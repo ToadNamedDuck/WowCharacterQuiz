@@ -1,13 +1,6 @@
 'use client'
 
-import { useEffect, useState } from "react";
-
 export default function QuizQuestion({ QuestionClassObj }) {
-    const [selectedAnswer, setAnswer] = useState(0);
-
-    useEffect(() => {
-
-    }, [selectedAnswer])
 
     let count = -1;
     return <>
@@ -30,7 +23,7 @@ export default function QuizQuestion({ QuestionClassObj }) {
                                             name={QuestionClassObj.qText}
                                             key={QuestionClassObj.qText + `-${count}`}
                                             value={count}
-                                            onChange={(e) => setAnswer(parseInt(e.target.value))}
+                                            onChange={(e) => QuestionClassObj.stateSetter(parseInt(e.target.value))}
                                             defaultChecked={true}
                                         />
                                     </div>
@@ -43,7 +36,7 @@ export default function QuizQuestion({ QuestionClassObj }) {
                                             name={QuestionClassObj.qText}
                                             key={QuestionClassObj.qText + `-${count}`}
                                             value={count}
-                                            onChange={(e) => setAnswer(parseInt(e.target.value))}
+                                            onChange={(e) => QuestionClassObj.stateSetter(parseInt(e.target.value))}
                                         />
                                     </div>
                                 }
