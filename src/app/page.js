@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Quiz from "../../Components/Quiz";
 import "styles.css"
+import CRHighlightTable from "../../Components/ClassRaceTable/CRHighlightTable";
 
 export class Question {
   qText = "";
@@ -16,6 +17,58 @@ export class Question {
       });
     }
     this.stateSetter = stateSetterFunction;
+  }
+}
+
+export class PlayableClass {
+  name = "";
+  classIcon = "";
+  position;
+  //More values here based on the questions we make.
+
+
+  //Constructor
+  constructor(className, classIconLocation, combatPosition)//add Other values to constructor
+  {
+    this.name = className;
+    this.classIcon = classIconLocation;
+    this.position = combatPosition;
+  }
+}
+
+class Faction{
+  static Alliance = new Faction("Alliance");
+  static Horde = new Faction("Horde");
+  static Both = new Faction("Both");
+
+  constructor(name){
+    this.name = name;
+  }
+}
+
+class Position{
+  static Melee = new Position("Melee");
+  static Ranged = new Position("Ranged");
+  static Both = new Position("Both");
+
+  constructor(name){
+    this.name = name;
+  }
+}
+
+export class PlayableRace {
+  name = "";
+  raceIcon = "";
+  validClasses = [];
+  faction;
+  //more options that correlate to questions.
+
+  //Put a constructor here
+  constructor(raceName, raceIconLocation, classArray, faction){
+    this.name = raceName;
+    this.raceIconLocation = raceIconLocation;
+    this.validClasses = classArray;
+    this.faction = faction;
   }
 }
 
@@ -33,5 +86,6 @@ export default function Home() {
   return <>
     <h1>WoW</h1>
     <Quiz questionArray={questionArray} />
+    <CRHighlightTable/>
   </>
 }
