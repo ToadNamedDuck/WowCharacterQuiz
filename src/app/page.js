@@ -74,7 +74,7 @@ const Shaman = new PlayableClass("Shaman", "CLASS_Shaman.png", Position.Both, Lo
 const Warlock = new PlayableClass("Warlock", "CLASS_Warlock.png", Position.Ranged, LotsOfButtons.SpecDependent, false, false, false);
 const Warrior = new PlayableClass("Warrior", "CLASS_Warrior.png", Position.Melee, LotsOfButtons.SpecDependent, false, false, false);
 
-class Faction{
+export class Faction{
   static Alliance = new Faction("Alliance");
   static Horde = new Faction("Horde");
   static Both = new Faction("Both");
@@ -110,7 +110,7 @@ const BloodElf = new PlayableRace("Blood Elf", "RACE_Blood-Elf-M.png", [...nearl
 const DarkIronDwarf = new PlayableRace("Dark Iron Dwarf", "RACE_Dark-Iron-Dwarf-M.png", [...nearlyUniversalClasses, Paladin, Shaman], Faction.Alliance, false, true, false);
 const Dracthyr = new PlayableRace("Dracthyr", "RACE_Dracthyr-M.png", [Evoker], Faction.Both, true, false, true);
 const Draenei = new PlayableRace("Draenei", "RACE_Draenei-M.png", [...nearlyUniversalClasses, Paladin, Shaman], Faction.Alliance, true, false, true);
-const Dwarf = new PlayableRace("Dwarf", "RACE_Dwarf.png", [...nearlyUniversalClasses, Paladin, Shaman], Faction.Alliance, false, true, false);
+const Dwarf = new PlayableRace("Dwarf", "RACE_Dwarf-M.png", [...nearlyUniversalClasses, Paladin, Shaman], Faction.Alliance, false, true, false);
 const Gnome = new PlayableRace("Gnome", "RACE_Gnome-M.png", [...nearlyUniversalClasses], Faction.Alliance, false, false, false);
 const Goblin = new PlayableRace("Goblin", "RACE_Goblin-M.png", [...nearlyUniversalClasses, Shaman], Faction.Horde, false, false, false);
 const HighmountainTauren = new PlayableRace("Highmountain Tauren", "RACE_Highmountain-Tauren-M.png", [...nearlyUniversalClasses, Druid, Shaman], Faction.Horde, false, true, true);
@@ -123,15 +123,16 @@ const NightElf = new PlayableRace("Night Elf", "RACE_Night-Elf-M.png", [...nearl
 const Nightborne = new PlayableRace("Nightborne", "RACE_Nightborne-M.png", [...nearlyUniversalClasses], Faction.Horde, true, false, true);
 const Orc = new PlayableRace("Orc", "RACE_Orc-M.png", [...nearlyUniversalClasses, Shaman], Faction.Horde, false, false, true);
 const Pandaren = new PlayableRace("Pandaren", "RACE_Pandaren-M.png", [...nearlyUniversalClasses, Shaman], Faction.Both, false, true, true);
-const Tauren = new PlayableRace("Tauren", "RACE_Tauren.png", [...nearlyUniversalClasses, Paladin, Shaman, Druid], Faction.Horde, false, true, true);
+const Tauren = new PlayableRace("Tauren", "RACE_Tauren-M.png", [...nearlyUniversalClasses, Paladin, Shaman, Druid], Faction.Horde, false, true, true);
 const Troll = new PlayableRace("Troll", "RACE_Troll-M.png", [...nearlyUniversalClasses, Druid, Shaman], Faction.Horde, false, false, true);
 const Undead = new PlayableRace("Undead", "RACE_Undead-M.png", [...nearlyUniversalClasses], Faction.Horde, false, false, true);
 const VoidElf = new PlayableRace("Void Elf", "RACE_Void-Elf-M.png", [...nearlyUniversalClasses], Faction.Alliance, true, false, true);
-const Vulpera = new PlayableRace("Worgen", "RACE_Worgen-M.png", [...nearlyUniversalClasses, Druid], Faction.Alliance, false, true, true);
+const Worgen = new PlayableRace("Worgen", "RACE_Worgen-M.png", [...nearlyUniversalClasses, Druid], Faction.Alliance, false, true, true);
+const Vulpera = new PlayableRace("Vulpera", "RACE_Vulpera-M.png", [...nearlyUniversalClasses, Shaman], Faction.Horde, false, true, false);
 const ZandalariTroll = new PlayableRace("Zandalari Troll", "RACE_Zandalari-Troll-M.png", [...nearlyUniversalClasses, Druid, Paladin, Shaman], Faction.Horde, true, false, true);
 
 const allClasses = [...nearlyUniversalClasses, Druid, Paladin, Shaman, DemonHunter, Evoker];
-const allRaces = [BloodElf, DarkIronDwarf, Dracthyr, Draenei, Dwarf, Gnome, Goblin, HighmountainTauren, Human, KulTiran, LightforgedDraenei, MagharOrc, Mechagnome, NightElf, Nightborne, Orc, Pandaren, Tauren, Troll, Undead, VoidElf, Vulpera, ZandalariTroll]
+const allRaces = [BloodElf, DarkIronDwarf, Dracthyr, Draenei, Dwarf, Gnome, Goblin, HighmountainTauren, Human, KulTiran, LightforgedDraenei, MagharOrc, Mechagnome, NightElf, Nightborne, Orc, Pandaren, Tauren, Troll, Undead, VoidElf, Worgen, Vulpera, ZandalariTroll]
 
 export default function Home() {
   const [q1Answer, setQ1Answer] = useState(0);

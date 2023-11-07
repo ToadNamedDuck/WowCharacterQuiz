@@ -5,6 +5,12 @@ export default function ClassTable({arrayOfClassObjects, QuestionStateArray}){
     //So if user selects melee, then all of the ranged classes should use the function and return false.
 
     return <div id="classTable">
-        Filler Text for Classes
+        <div id="HordeRaces">
+            {
+                arrayOfClassObjects.map(pClass => {
+                    return <img src={pClass.classIcon} alt={pClass.name} title={pClass.name}/>
+                })
+            }
+        </div>
     </div>
 }
