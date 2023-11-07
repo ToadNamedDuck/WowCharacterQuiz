@@ -33,11 +33,31 @@ class PlayableClass {
     this.name = className;
     this.classIcon = classIconLocation;
     this.position = combatPosition;
-    this.isComplex = lotOfButtonsBool;
+    this.isComplex = lotOfButtons;
     this.isShiny = isShinyBool;
     this.isFlexible = isFlexibleBool;
     this.canHeal = canHealBool;
   }//Maybe an array of specs - each spec can fit a certain critera like many or few buttons etc.
+}
+
+export class Position{
+  static Melee = new Position("Melee");
+  static Ranged = new Position("Ranged");
+  static Both = new Position("Both");
+
+  constructor(name){
+    this.name = name;
+  }
+}
+
+class LotsOfButtons{
+  static Yes = new LotsOfButtons("Yes");
+  static No = new LotsOfButtons("No")
+  static SpecDependent = new LotsOfButtons("SpecDependent");
+
+  constructor(name){
+    this.name = name;
+  }
 }
 
 const DeathKnight = new PlayableClass("Death Knight", "CLASS_Death-Knight.png", Position.Melee, LotsOfButtons.Yes, false, false, false);
@@ -64,26 +84,6 @@ class Faction{
   }
 }
 
-export class Position{
-  static Melee = new Position("Melee");
-  static Ranged = new Position("Ranged");
-  static Both = new Position("Both");
-
-  constructor(name){
-    this.name = name;
-  }
-}
-
-class LotsOfButtons{
-  static Yes = new LotsOfButtons("Yes");
-  static No = new LotsOfButtons("No")
-  static SpecDependent = new LotsOfButtons("SpecDependent");
-
-  constructor(name){
-    this.name = name;
-  }
-}
-
 class PlayableRace {
   name = "";
   raceIcon = "";
@@ -103,6 +103,35 @@ class PlayableRace {
     this.isTall = isTallBool;
   }
 }
+
+const nearlyUniversalClasses= [Warrior, Hunter, Mage, Rogue, Priest, Warlock, Monk, DeathKnight];
+
+const BloodElf = new PlayableRace("Blood Elf", "RACE_Blood-Elf-M.png", [...nearlyUniversalClasses, Paladin, DemonHunter], Faction.Horde, true, false, true);
+const DarkIronDwarf = new PlayableRace("Dark Iron Dwarf", "RACE_Dark-Iron-Dwarf-M.png", [...nearlyUniversalClasses, Paladin, Shaman], Faction.Alliance, false, true, false);
+const Dracthyr = new PlayableRace("Dracthyr", "RACE_Dracthyr-M.png", [Evoker], Faction.Both, true, false, true);
+const Draenei = new PlayableRace("Draenei", "RACE_Draenei-M.png", [...nearlyUniversalClasses, Paladin, Shaman], Faction.Alliance, true, false, true);
+const Dwarf = new PlayableRace("Dwarf", "RACE_Dwarf.png", [...nearlyUniversalClasses, Paladin, Shaman], Faction.Alliance, false, true, false);
+const Gnome = new PlayableRace("Gnome", "RACE_Gnome-M.png", [...nearlyUniversalClasses], Faction.Alliance, false, false, false);
+const Goblin = new PlayableRace("Goblin", "RACE_Goblin-M.png", [...nearlyUniversalClasses, Shaman], Faction.Horde, false, false, false);
+const HighmountainTauren = new PlayableRace("Highmountain Tauren", "RACE_Highmountain-Tauren-M.png", [...nearlyUniversalClasses, Druid, Shaman], Faction.Horde, false, true, true);
+const Human = new PlayableRace("Human", "RACE_Human-M.png", [...nearlyUniversalClasses, Paladin], Faction.Alliance, true, false, true);
+const KulTiran = new PlayableRace("Kul Tiran Human", "RACE_Kul-Tiran-M.png", [...nearlyUniversalClasses, Druid, Shaman], Faction.Alliance, false, false, true);
+const LightforgedDraenei = new PlayableRace("Lightforged Draenei", "RACE_Lightforged-Draenei-M.png", [...nearlyUniversalClasses, Paladin], Faction.Alliance, true, false, true);
+const MagharOrc = new PlayableRace("Mag'har Orc", "RACE_Maghar-Orc-M.png", [...nearlyUniversalClasses, Shaman], Faction.Horde, false, false, true);
+const Mechagnome = new PlayableRace("Mechagnome", "RACE_Mechagnome-M.png", [...nearlyUniversalClasses], Faction.Alliance, true, false, false);
+const NightElf = new PlayableRace("Night Elf", "RACE_Night-Elf-M.png", [...nearlyUniversalClasses, Druid, DemonHunter], Faction.Alliance, false, false, true);
+const Nightborne = new PlayableRace("Nightborne", "RACE_Nightborne-M.png", [...nearlyUniversalClasses], Faction.Horde, true, false, true);
+const Orc = new PlayableRace("Orc", "RACE_Orc-M.png", [...nearlyUniversalClasses, Shaman], Faction.Horde, false, false, true);
+const Pandaren = new PlayableRace("Pandaren", "RACE_Pandaren-M.png", [...nearlyUniversalClasses, Shaman], Faction.Both, false, true, true);
+const Tauren = new PlayableRace("Tauren", "RACE_Tauren.png", [...nearlyUniversalClasses, Paladin, Shaman, Druid], Faction.Horde, false, true, true);
+const Troll = new PlayableRace("Troll", "RACE_Troll-M.png", [...nearlyUniversalClasses, Druid, Shaman], Faction.Horde, false, false, true);
+const Undead = new PlayableRace("Undead", "RACE_Undead-M.png", [...nearlyUniversalClasses], Faction.Horde, false, false, true);
+const VoidElf = new PlayableRace("Void Elf", "RACE_Void-Elf-M.png", [...nearlyUniversalClasses], Faction.Alliance, true, false, true);
+const Vulpera = new PlayableRace("Worgen", "RACE_Worgen-M.png", [...nearlyUniversalClasses, Druid], Faction.Alliance, false, true, true);
+const ZandalariTroll = new PlayableRace("Zandalari Troll", "RACE_Zandalari-Troll-M.png", [...nearlyUniversalClasses, Druid, Paladin, Shaman], Faction.Horde, true, false, true);
+
+const allClasses = [...nearlyUniversalClasses, Druid, Paladin, Shaman, DemonHunter, Evoker];
+const allRaces = [BloodElf, DarkIronDwarf, Dracthyr, Draenei, Dwarf, Gnome, Goblin, HighmountainTauren, Human, KulTiran, LightforgedDraenei, MagharOrc, Mechagnome, NightElf, Nightborne, Orc, Pandaren, Tauren, Troll, Undead, VoidElf, Vulpera, ZandalariTroll]
 
 export default function Home() {
   const [q1Answer, setQ1Answer] = useState(0);
@@ -131,6 +160,6 @@ export default function Home() {
   return <>
     <h1>WoW</h1>
     <Quiz questionArray={questionArray} />
-    <CRHighlightTable/>
+    <CRHighlightTable QuestionStateArray={answerArray} arrayOfClassObjects={allClasses} arrayOfRaceObjects={allRaces}/>
   </>
 }
