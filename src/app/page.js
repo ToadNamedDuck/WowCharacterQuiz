@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Quiz from "../../Components/Quiz";
 import "styles.css"
 import CRHighlightTable from "../../Components/ClassRaceTable/CRHighlightTable";
@@ -26,8 +26,6 @@ export class PlayableClass {
   position;
   //More values here based on the questions we make.
 
-
-  //Constructor
   constructor(className, classIconLocation, combatPosition)//add Other values to constructor
   {
     this.name = className;
@@ -56,14 +54,13 @@ class Position{
   }
 }
 
-export class PlayableRace {
+class PlayableRace {
   name = "";
   raceIcon = "";
   validClasses = [];
   faction;
   //more options that correlate to questions.
 
-  //Put a constructor here
   constructor(raceName, raceIconLocation, classArray, faction){
     this.name = raceName;
     this.raceIconLocation = raceIconLocation;
@@ -77,11 +74,24 @@ export default function Home() {
   const [q2Answer, setQ2Answer] = useState(0);
   const [q3Answer, setQ3Answer] = useState(0);
   const [q4Answer, setQ4Answer] = useState(0);
+  const [q5Answer, setQ5Answer] = useState(0);
+  const [q6Answer, setQ6Answer] = useState(0);
+  const [q7Answer, setQ7Answer] = useState(0);
   const q1 = new Question("Do you have a preference for Alliance or Horde?", ["For the Alliance!", "For the Horde!", "I don't care who pays me."], setQ1Answer);
-  const q2 = new Question("Do you prefer ranged or melee today?", ["Yes, definitely", "I'm not a coward", "I just want to see something die."], setQ2Answer);
+  const q2 = new Question("Do you prefer ranged or melee today?", ["Yes, definitely", "I'm not a coward", "Actually, I'm a healer.", "I just want to see something die."], setQ2Answer);
   const q3 = new Question("Do you want to think and press a lot of buttons while you play?", ["Complex classes are for me", "Hell no", "Next question please."], setQ3Answer);
   const q4 = new Question("Is your aesthetic shiny and bright, or more muted?", ["Definitely shiny. I am the best.", "I like it dark and depressing.", "Still don't care."], setQ4Answer);
-  const questionArray = [q1, q2, q3, q4];
+  const q5 = new Question("Do you care if your character is hairy?", ["I would prefer them to be covered in it.", "Not very, please.", "No preference."], setQ5Answer);
+  const q6 = new Question("Do you prefer your character be tall, short, average-ish, or don't care?", ["I look down on others.", "I like to bite ankles.", "Something reasonable.", "Don't care."], setQ6Answer);
+  const q7 = new Question("Should your class be flexible, or only one to two roles tops?", ["As flexible as possible", "I like doing damage and that's it.", "Doesn't matter, give me something."], setQ7Answer);
+
+  const questionArray = [q1, q2, q3, q4, q5, q6, q7];
+  const [answerArray, setAnswerArray] = useState([q1Answer, q2Answer, q3Answer, q4Answer, q5Answer, q6Answer, q7Answer]);
+
+  useEffect(() => {
+    setAnswerArray([q1Answer, q2Answer, q3Answer, q4Answer, q5Answer, q6Answer, q7Answer])
+  },[q1Answer, q2Answer, q3Answer, q4Answer, q5Answer, q6Answer, q7Answer])
+
 
   return <>
     <h1>WoW</h1>
