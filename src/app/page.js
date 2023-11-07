@@ -29,7 +29,7 @@ class PlayableClass {
   isFlexible;//All 3 roles
   canHeal;
 
-  constructor(className, classIconLocation, combatPosition, lotOfButtonsBool, isShinyBool, isFlexibleBool, canHealBool){
+  constructor(className, classIconLocation, combatPosition, lotOfButtons, isShinyBool, isFlexibleBool, canHealBool){
     this.name = className;
     this.classIcon = classIconLocation;
     this.position = combatPosition;
@@ -37,8 +37,22 @@ class PlayableClass {
     this.isShiny = isShinyBool;
     this.isFlexible = isFlexibleBool;
     this.canHeal = canHealBool;
-  }
+  }//Maybe an array of specs - each spec can fit a certain critera like many or few buttons etc.
 }
+
+const DeathKnight = new PlayableClass("Death Knight", "CLASS_Death-Knight.png", Position.Melee, LotsOfButtons.Yes, false, false, false);
+const DemonHunter = new PlayableClass("Demon Hunter", "CLASS_Demon-Hunter.png", Position.Melee, LotsOfButtons.No, false, false, false);
+const Druid = new PlayableClass("Druid", "CLASS_Druid.png", Position.Both, LotsOfButtons.Yes, true, true, true);
+const Evoker = new PlayableClass("Evoker", "CLASS_Evoker.png", Position.Ranged, LotsOfButtons.SpecDependent, true, false, true);
+const Hunter = new PlayableClass("Hunter", "CLASS_Hunter.png", Position.Both, LotsOfButtons.SpecDependent, false, false, false);
+const Mage = new PlayableClass("Mage", "CLASS_Mage.png", Position.Ranged, LotsOfButtons.Yes, true, false, false);
+const Monk = new PlayableClass("Monk", "CLASS_Monk.png", Position.Melee, LotsOfButtons.Yes, false, true, true);
+const Paladin = new PlayableClass("Paladin", "CLASS_Paladin.png", Position.Melee, LotsOfButtons.SpecDependent, true, true, true);
+const Priest = new PlayableClass("Priest", "CLASS_Priest.png", Position.Ranged, LotsOfButtons.Yes, true, false, true);
+const Rogue = new PlayableClass("Rogue", "CLASS_Rogue.png", Position.Melee, LotsOfButtons.Yes, false, false, false);
+const Shaman = new PlayableClass("Shaman", "CLASS_Shaman.png", Position.Both, LotsOfButtons.Yes, true, false, true);
+const Warlock = new PlayableClass("Warlock", "CLASS_Warlock.png", Position.Ranged, LotsOfButtons.SpecDependent, false, false, false);
+const Warrior = new PlayableClass("Warrior", "CLASS_Warrior.png", Position.Melee, LotsOfButtons.SpecDependent, false, false, false);
 
 class Faction{
   static Alliance = new Faction("Alliance");
@@ -50,10 +64,20 @@ class Faction{
   }
 }
 
-class Position{
+export class Position{
   static Melee = new Position("Melee");
   static Ranged = new Position("Ranged");
   static Both = new Position("Both");
+
+  constructor(name){
+    this.name = name;
+  }
+}
+
+class LotsOfButtons{
+  static Yes = new LotsOfButtons("Yes");
+  static No = new LotsOfButtons("No")
+  static SpecDependent = new LotsOfButtons("SpecDependent");
 
   constructor(name){
     this.name = name;
