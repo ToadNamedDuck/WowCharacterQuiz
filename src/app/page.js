@@ -20,17 +20,23 @@ export class Question {
   }
 }
 
-export class PlayableClass {
+class PlayableClass {
   name = "";
   classIcon = "";
   position;
-  //More values here based on the questions we make.
+  isComplex;
+  isShiny;
+  isFlexible;//All 3 roles
+  canHeal;
 
-  constructor(className, classIconLocation, combatPosition)//add Other values to constructor
-  {
+  constructor(className, classIconLocation, combatPosition, lotOfButtonsBool, isShinyBool, isFlexibleBool, canHealBool){
     this.name = className;
     this.classIcon = classIconLocation;
     this.position = combatPosition;
+    this.isComplex = lotOfButtonsBool;
+    this.isShiny = isShinyBool;
+    this.isFlexible = isFlexibleBool;
+    this.canHeal = canHealBool;
   }
 }
 
@@ -59,13 +65,18 @@ class PlayableRace {
   raceIcon = "";
   validClasses = [];
   faction;
-  //more options that correlate to questions.
+  isShiny;
+  isHairy;
+  isTall;
 
-  constructor(raceName, raceIconLocation, classArray, faction){
+  constructor(raceName, raceIconLocation, classArray, faction, isShinyBool, isHairyBool, isTallBool){
     this.name = raceName;
     this.raceIconLocation = raceIconLocation;
     this.validClasses = classArray;
     this.faction = faction;
+    this.isShiny = isShinyBool;
+    this.isHairy = isHairyBool;
+    this.isTall = isTallBool;
   }
 }
 
@@ -82,7 +93,7 @@ export default function Home() {
   const q3 = new Question("Do you want to think and press a lot of buttons while you play?", ["Complex classes are for me", "Hell no", "Next question please."], setQ3Answer);
   const q4 = new Question("Is your aesthetic shiny and bright, or more muted?", ["Definitely shiny. I am the best.", "I like it dark and depressing.", "Still don't care."], setQ4Answer);
   const q5 = new Question("Do you care if your character is hairy?", ["I would prefer them to be covered in it.", "Not very, please.", "No preference."], setQ5Answer);
-  const q6 = new Question("Do you prefer your character be tall, short, average-ish, or don't care?", ["I look down on others.", "I like to bite ankles.", "Something reasonable.", "Don't care."], setQ6Answer);
+  const q6 = new Question("Do you prefer your character be taller or shorter, or don't care?", ["I look down on others.", "I like to bite ankles.", "Don't care."], setQ6Answer);
   const q7 = new Question("Should your class be flexible, or only one to two roles tops?", ["As flexible as possible", "I like doing damage and that's it.", "Doesn't matter, give me something."], setQ7Answer);
 
   const questionArray = [q1, q2, q3, q4, q5, q6, q7];
