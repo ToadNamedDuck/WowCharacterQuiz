@@ -136,7 +136,7 @@ const ZandalariTroll = new PlayableRace("Zandalari Troll", "RACE_Zandalari-Troll
 
 const allClasses = [Warrior, Hunter, Mage, Rogue, Priest, Warlock, Paladin, Druid, Shaman, Monk, DemonHunter, DeathKnight, Evoker];
 //Organize the Alliance and Horde here into the order they appear in character creation. Also want to make Panda/Dracthyr their own div.
-const allRaces = [BloodElf, DarkIronDwarf, Dracthyr, Draenei, Dwarf, Gnome, Goblin, HighmountainTauren, Human, KulTiran, LightforgedDraenei, MagharOrc, Mechagnome, NightElf, Nightborne, Orc, Pandaren, Tauren, Troll, Undead, VoidElf, Worgen, Vulpera, ZandalariTroll]
+const allRaces = [Human, Dwarf, NightElf, Gnome, Draenei, Worgen, VoidElf, LightforgedDraenei, DarkIronDwarf, KulTiran, Mechagnome, Orc, Undead, Tauren, Troll, BloodElf, Goblin, Nightborne, HighmountainTauren, MagharOrc, ZandalariTroll, Vulpera, Pandaren, Dracthyr];
 
 export default function Home() {
   const [q1Answer, setQ1Answer] = useState(0);

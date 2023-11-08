@@ -23,3 +23,8 @@
     display: inline-block;
     filter: grayscale(1);
 }
+.CR-Icon{
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+}

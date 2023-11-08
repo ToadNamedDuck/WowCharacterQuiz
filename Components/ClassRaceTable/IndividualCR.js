@@ -12,11 +12,11 @@ export default function IndividualCR({ ClassOrRaceObject }) {
         !isGrayedOut
         ?
         <div className="racesTableMember">
-            <img src={ClassOrRaceObject.icon} alt={ClassOrRaceObject.name} title={ClassOrRaceObject.name} />
+            <img className="CR-Icon" src={ClassOrRaceObject.icon} alt={ClassOrRaceObject.name} title={ClassOrRaceObject.name} />
         </div>
         :
         <div className="racesTableMemberGrayed">
-            <img src={ClassOrRaceObject.icon} alt={ClassOrRaceObject.name} title={ClassOrRaceObject.name} />
+            <img className="CR-Icon" src={ClassOrRaceObject.icon} alt={ClassOrRaceObject.name} title={ClassOrRaceObject.name} />
         </div>
     }
     </>
