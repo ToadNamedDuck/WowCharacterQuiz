@@ -25,7 +25,7 @@ export class Question {
 //Also means each image in our table down there will need to be a stateful component, which is fine by me.
 class PlayableClass {
   name = "";
-  classIcon = "";
+  icon = "";
   position;
   isComplex;
   isShiny;
@@ -34,7 +34,7 @@ class PlayableClass {
 
   constructor(className, classIconLocation, combatPosition, lotOfButtons, isShinyBool, isFlexibleBool, canHealBool){
     this.name = className;
-    this.classIcon = classIconLocation;
+    this.icon = classIconLocation;
     this.position = combatPosition;
     this.isComplex = lotOfButtons;
     this.isShiny = isShinyBool;
@@ -89,7 +89,7 @@ export class Faction{
 
 class PlayableRace {
   name = "";
-  raceIcon = "";
+  icon = "";
   validClasses = [];
   faction;
   isShiny;
@@ -98,7 +98,7 @@ class PlayableRace {
 
   constructor(raceName, raceIconLocation, classArray, faction, isShinyBool, isHairyBool, isTallBool){
     this.name = raceName;
-    this.raceIconLocation = raceIconLocation;
+    this.icon = raceIconLocation;
     this.validClasses = classArray;
     this.faction = faction;
     this.isShiny = isShinyBool;
