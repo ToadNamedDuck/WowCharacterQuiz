@@ -20,6 +20,9 @@ export class Question {
   }
 }
 
+//Races and classes are going to end up needing a list of answers that will cause them to gray out and become unselectable for our final generation.
+//Ideally, this is an array of either key value pairs or just values where the index (+1) correlates to the question number
+//Also means each image in our table down there will need to be a stateful component, which is fine by me.
 class PlayableClass {
   name = "";
   classIcon = "";
@@ -131,7 +134,8 @@ const Worgen = new PlayableRace("Worgen", "RACE_Worgen-M.png", [...nearlyUnivers
 const Vulpera = new PlayableRace("Vulpera", "RACE_Vulpera-M.png", [...nearlyUniversalClasses, Shaman], Faction.Horde, false, true, false);
 const ZandalariTroll = new PlayableRace("Zandalari Troll", "RACE_Zandalari-Troll-M.png", [...nearlyUniversalClasses, Druid, Paladin, Shaman], Faction.Horde, true, false, true);
 
-const allClasses = [...nearlyUniversalClasses, Druid, Paladin, Shaman, DemonHunter, Evoker];
+const allClasses = [Warrior, Hunter, Mage, Rogue, Priest, Warlock, Paladin, Druid, Shaman, Monk, DemonHunter, DeathKnight, Evoker];
+//Organize the Alliance and Horde here into the order they appear in character creation. Also want to make Panda/Dracthyr their own div.
 const allRaces = [BloodElf, DarkIronDwarf, Dracthyr, Draenei, Dwarf, Gnome, Goblin, HighmountainTauren, Human, KulTiran, LightforgedDraenei, MagharOrc, Mechagnome, NightElf, Nightborne, Orc, Pandaren, Tauren, Troll, Undead, VoidElf, Worgen, Vulpera, ZandalariTroll]
 
 export default function Home() {
@@ -148,7 +152,7 @@ export default function Home() {
   const q4 = new Question("Is your aesthetic shiny and bright, or more muted?", ["Definitely shiny. I am the best.", "I like it dark and depressing.", "Still don't care."], setQ4Answer);
   const q5 = new Question("Do you care if your character is hairy?", ["I would prefer them to be covered in it.", "Not very, please.", "No preference."], setQ5Answer);
   const q6 = new Question("Do you prefer your character be taller or shorter, or don't care?", ["I look down on others.", "I like to bite ankles.", "Don't care."], setQ6Answer);
-  const q7 = new Question("Should your class be flexible, or only one to two roles tops?", ["As flexible as possible", "I like doing damage and that's it.", "Doesn't matter, give me something."], setQ7Answer);
+  const q7 = new Question("Should your class be flexible, or only 1-2 roles tops?", ["As flexible as possible", "I like doing damage and that's it.", "Doesn't matter, give me something."], setQ7Answer);
 
   const questionArray = [q1, q2, q3, q4, q5, q6, q7];
   const [answerArray, setAnswerArray] = useState([q1Answer, q2Answer, q3Answer, q4Answer, q5Answer, q6Answer, q7Answer]);
