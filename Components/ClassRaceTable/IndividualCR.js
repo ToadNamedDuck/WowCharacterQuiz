@@ -1,12 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function IndividualCR({ ClassOrRaceObject }) {
     const [isGrayedOut, setGrayedOut] = useState(false);
 
+    useEffect(() => {
+
+    }, [isGrayedOut])
+
     return <>
-        <div class="racesTableMember" style={{ width: "130px", height: "130px", display: "inline-block" }}>
+    {
+        !isGrayedOut
+        ?
+        <div className="racesTableMember">
             <img src={ClassOrRaceObject.icon} alt={ClassOrRaceObject.name} title={ClassOrRaceObject.name} />
         </div>
+        :
+        <div className="racesTableMemberGrayed">
+            <img src={ClassOrRaceObject.icon} alt={ClassOrRaceObject.name} title={ClassOrRaceObject.name} />
+        </div>
+    }
     </>
 
 }

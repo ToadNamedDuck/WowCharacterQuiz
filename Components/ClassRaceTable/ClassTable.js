@@ -5,7 +5,7 @@ export default function ClassTable({arrayOfClassObjects, QuestionStateArray}){
         <div id="HordeRaces">
             {
                 arrayOfClassObjects.map(pClass => {
-                    return <IndividualCR ClassOrRaceObject={pClass}/>
+                    return <IndividualCR key={`Class-${pClass.name}`} ClassOrRaceObject={pClass}/>
                 })
             }
         </div>

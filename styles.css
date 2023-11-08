@@ -10,3 +10,16 @@
     flex-direction: row-reverse;
     justify-content: flex-end;
 }
+.racesTableMember{
+    width: 130px;
+    height: 130px;
+    background-color: black;
+    display: inline-block;
+}
+.racesTableMemberGrayed{
+    width: 130px;
+    height: 130px;
+    background-color: black;
+    display: inline-block;
+    filter: grayscale(1);
+}
