@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
 
-export default function IndividualCR({ ClassOrRaceObject }) {
+export default function IndividualCR({ ClassOrRaceObject, questionStateArray }) {
     const [isGrayedOut, setGrayedOut] = useState(false);
 
     useEffect(() => {
-
-    }, [isGrayedOut])
+        //Refresh state back to false
+        setGrayedOut(false);
+        //Compare each question state to the invalidation questions
+        ClassOrRaceObject.invalidationAnswers.forEach((answer, index) => {
+            if(questionStateArray[index] === answer){
+                setGrayedOut(true);
+            }
+        })
+    }, [questionStateArray])
 
     return <>
     {

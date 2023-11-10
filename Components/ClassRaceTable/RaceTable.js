@@ -7,7 +7,7 @@ export default function RaceTable({arrayOfRaceObjects, questionStateArray}){
         {
                 arrayOfRaceObjects.map(race => {
                     if(race.faction === Faction.Alliance)
-                    return <IndividualCR key={`Alliance-${race.name}`} ClassOrRaceObject={race}/>
+                    return <IndividualCR key={`Alliance-${race.name}`} questionStateArray={questionStateArray} ClassOrRaceObject={race}/>
                 })
             }
         </div>
@@ -15,7 +15,7 @@ export default function RaceTable({arrayOfRaceObjects, questionStateArray}){
             {
                 arrayOfRaceObjects.map(race => {
                     if(race.faction === Faction.Horde)
-                    return <IndividualCR key={`Horde-${race.name}`} ClassOrRaceObject={race}/>
+                    return <IndividualCR key={`Horde-${race.name}`} questionStateArray={questionStateArray} ClassOrRaceObject={race}/>
                 })
             }
         </div>
@@ -23,7 +23,7 @@ export default function RaceTable({arrayOfRaceObjects, questionStateArray}){
             {
                 arrayOfRaceObjects.map(race => {
                     if(race.faction === Faction.Both)
-                    return <IndividualCR key={`A-H-${race.name}`} ClassOrRaceObject={race}/>
+                    return <IndividualCR key={`A-H-${race.name}`} questionStateArray={questionStateArray} ClassOrRaceObject={race}/>
                 })
             }
         </div>
