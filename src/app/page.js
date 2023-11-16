@@ -107,9 +107,9 @@ const nearlyUniversalClasses= [Warrior, Hunter, Mage, Rogue, Priest, Warlock, Mo
 
 const BloodElf = new PlayableRace("Blood Elf", "RACE_Blood-Elf-M.png", [...nearlyUniversalClasses, Paladin, DemonHunter], Faction.Horde, false, true);
 const DarkIronDwarf = new PlayableRace("Dark Iron Dwarf", "RACE_Dark-Iron-Dwarf-M.png", [...nearlyUniversalClasses, Paladin, Shaman], Faction.Alliance, true, false);
-const Dracthyr = new PlayableRace("Dracthyr", "RACE_Dracthyr-M.png", [Evoker], Faction.Both, true, false, true);
+const Dracthyr = new PlayableRace("Dracthyr", "RACE_Dracthyr-M.png", [Evoker], Faction.Both, false, true);
 const Draenei = new PlayableRace("Draenei", "RACE_Draenei-M.png", [...nearlyUniversalClasses, Paladin, Shaman], Faction.Alliance, false, true);
-const Dwarf = new PlayableRace("Dwarf", "RACE_Dwarf-M.png", [...nearlyUniversalClasses, Paladin, Shaman], Faction.Alliance, false, false);
+const Dwarf = new PlayableRace("Dwarf", "RACE_Dwarf-M.png", [...nearlyUniversalClasses, Paladin, Shaman], Faction.Alliance, true, false);
 const Gnome = new PlayableRace("Gnome", "RACE_Gnome-M.png", [...nearlyUniversalClasses], Faction.Alliance, false, false);
 const Goblin = new PlayableRace("Goblin", "RACE_Goblin-M.png", [...nearlyUniversalClasses, Shaman], Faction.Horde, false, false);
 const HighmountainTauren = new PlayableRace("Highmountain Tauren", "RACE_Highmountain-Tauren-M.png", [...nearlyUniversalClasses, Druid, Shaman], Faction.Horde, true, true);
@@ -143,7 +143,7 @@ export default function Home() {
   const [q7Answer, setQ7Answer] = useState(0);
   const q1 = new Question("Do you have a preference for Alliance or Horde?", ["For the Alliance!", "For the Horde!", "I don't care who pays me."], setQ1Answer);
   const q2 = new Question("Do you prefer ranged or melee today?", ["Far away to send big damage", "I'm not a coward", "Actually, I'm a healer", "IDC"], setQ2Answer);
-  const q3 = new Question("Do you want to think and press a lot of buttons while you play?", ["Complex classes are for me", "Hell no", "The option would be nice, but not mandatory.", "Next question please."], setQ3Answer);
+  const q3 = new Question("Do you want to think and press a lot of buttons while you play?", ["Complex classes are for me", "Hell no", "Next question please."], setQ3Answer);
   const q5 = new Question("Do you care if your character is hairy?", ["I would prefer them to be covered in it.", "Not very, please.", "No preference."], setQ5Answer);
   const q6 = new Question("Do you prefer your character be taller or shorter, or don't care?", ["I look down on others.", "I like to bite ankles.", "Don't care."], setQ6Answer);
   const q7 = new Question("Should your class be flexible, or only 1-2 roles tops?", ["As flexible as possible", "I like my chosen role.", "Doesn't matter, give me something."], setQ7Answer);

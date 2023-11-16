@@ -88,6 +88,40 @@ export default function IndividualCR({ ClassOrRaceObject, questionStateArray }) 
                         break;
                     }
                 }
+                switch(questionStateArray[3]){
+                    case 0:{
+                        if(ClassOrRaceObject.isHairy === false){
+                            setGrayedOut(true);
+                        }
+                        break;
+                    }
+                    case 1:{
+                        if(ClassOrRaceObject.isHairy === true){
+                            setGrayedOut(true);
+                        }
+                        break;
+                    }
+                    default:{
+                        break;
+                    }
+                }
+                switch(questionStateArray[4]){
+                    case 0: {
+                        if(ClassOrRaceObject.isTall === false){
+                            setGrayedOut(true);
+                        }
+                        break;
+                    }
+                    case 1:{
+                        if(ClassOrRaceObject.isTall === true){
+                            setGrayedOut(true);
+                        }
+                        break;
+                    }
+                    default:{
+                        break;
+                    }
+                }
             }
         }
     }, [questionStateArray])
