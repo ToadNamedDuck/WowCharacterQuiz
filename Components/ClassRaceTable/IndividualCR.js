@@ -1,4 +1,4 @@
-import { LotsOfButtons, PlayableClass, PlayableRace, Position } from "@/app/page";
+import { Faction, LotsOfButtons, PlayableClass, PlayableRace, Position } from "@/app/page";
 import { useEffect, useState } from "react";
 
 export default function IndividualCR({ ClassOrRaceObject, questionStateArray }) {
@@ -70,7 +70,24 @@ export default function IndividualCR({ ClassOrRaceObject, questionStateArray }) 
                 }
             }
             if (ClassOrRaceObject instanceof PlayableRace) {
-                //nothing
+                //Classes need to respond to Questions: 1, 4, 5 
+                switch(questionStateArray[0]){
+                    case 0:{
+                        if(ClassOrRaceObject.faction !== Faction.Alliance && ClassOrRaceObject.faction !== Faction.Both){
+                            setGrayedOut(true);
+                        }
+                        break;
+                    }
+                    case 1:{
+                        if(ClassOrRaceObject.faction !== Faction.Horde && ClassOrRaceObject.faction !== Faction.Both){
+                            setGrayedOut(true)
+                        }
+                        break;
+                    }
+                    default:{
+                        break;
+                    }
+                }
             }
         }
     }, [questionStateArray])

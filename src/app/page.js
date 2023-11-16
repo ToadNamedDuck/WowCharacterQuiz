@@ -69,7 +69,7 @@ const Hunter = new PlayableClass("Hunter", "CLASS_Hunter.png", Position.Both, Lo
 const Mage = new PlayableClass("Mage", "CLASS_Mage.png", Position.Ranged, LotsOfButtons.Yes, false, false);
 const Monk = new PlayableClass("Monk", "CLASS_Monk.png", Position.Melee, LotsOfButtons.Yes, true, true);
 const Paladin = new PlayableClass("Paladin", "CLASS_Paladin.png", Position.Melee, LotsOfButtons.SpecDependent, true, true);
-const Priest = new PlayableClass("Priest", "CLASS_Priest.png", Position.Ranged, LotsOfButtons.Yes, false, true);
+const Priest = new PlayableClass("Priest", "CLASS_Priest.png", Position.Ranged, LotsOfButtons.SpecDependent, false, true);
 const Rogue = new PlayableClass("Rogue", "CLASS_Rogue.png", Position.Melee, LotsOfButtons.Yes, false, false);
 const Shaman = new PlayableClass("Shaman", "CLASS_Shaman.png", Position.Both, LotsOfButtons.Yes, false, true);
 const Warlock = new PlayableClass("Warlock", "CLASS_Warlock.png", Position.Ranged, LotsOfButtons.SpecDependent, false, false);
@@ -93,7 +93,7 @@ export class PlayableRace {
   isHairy;
   isTall;
 
-  constructor(raceName, raceIconLocation, classArray, faction, isShinyBool, isHairyBool, isTallBool){
+  constructor(raceName, raceIconLocation, classArray, faction, isHairyBool, isTallBool){
     this.name = raceName;
     this.icon = raceIconLocation;
     this.validClasses = classArray;
