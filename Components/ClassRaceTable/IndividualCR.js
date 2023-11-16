@@ -2,11 +2,11 @@ import { Faction, LotsOfButtons, PlayableClass, PlayableRace, Position } from "@
 import { useEffect, useState } from "react";
 
 export default function IndividualCR({ ClassOrRaceObject, questionStateArray }) {
-    const [isGrayedOut, setGrayedOut] = useState(false);
+
 
     useEffect(() => {
         //Refresh state back to false
-        setGrayedOut(false);
+        ClassOrRaceObject.grayedOutSetter(false);
         //Compare each question state to the invalidation questions
         if (questionStateArray !== undefined && ClassOrRaceObject !== undefined) {
             if (ClassOrRaceObject instanceof PlayableClass) {//For Classes.
@@ -14,19 +14,19 @@ export default function IndividualCR({ ClassOrRaceObject, questionStateArray }) 
                 switch (questionStateArray[1]) {
                     case 0: {
                         if (ClassOrRaceObject.position !== Position.Ranged && ClassOrRaceObject.position !== Position.Both) {
-                            setGrayedOut(true);
+                            ClassOrRaceObject.grayedOutSetter(true);
                         }
                         break;
                     }
                     case 1: {
                         if (ClassOrRaceObject.position !== Position.Melee && ClassOrRaceObject.position !== Position.Both) {
-                            setGrayedOut(true);
+                            ClassOrRaceObject.grayedOutSetter(true);
                         }
                         break;
                     }
                     case 2: {
                         if (ClassOrRaceObject.canHeal !== true) {
-                            setGrayedOut(true)
+                            ClassOrRaceObject.grayedOutSetter(true)
                         }
                         break;
                     }
@@ -37,13 +37,13 @@ export default function IndividualCR({ ClassOrRaceObject, questionStateArray }) 
                 switch (questionStateArray[2]){
                     case 0: {
                         if(ClassOrRaceObject.isComplex !== LotsOfButtons.Yes && ClassOrRaceObject.isComplex !== LotsOfButtons.SpecDependent){
-                            setGrayedOut(true);
+                            ClassOrRaceObject.grayedOutSetter(true);
                         }
                         break;
                     }
                     case 1:{
                         if(ClassOrRaceObject.isComplex !== LotsOfButtons.No && ClassOrRaceObject.isComplex !== LotsOfButtons.SpecDependent){
-                            setGrayedOut(true);
+                            ClassOrRaceObject.grayedOutSetter(true);
                         }
                         break;
                     }
@@ -54,13 +54,13 @@ export default function IndividualCR({ ClassOrRaceObject, questionStateArray }) 
                 switch (questionStateArray[5]){
                     case 0: {
                         if(ClassOrRaceObject.isFlexible !== true){
-                            setGrayedOut(true);
+                            ClassOrRaceObject.grayedOutSetter(true);
                         }
                         break;
                     }
                     case 1: {
                         if(ClassOrRaceObject.isFlexible !== false){
-                            setGrayedOut(true);
+                            ClassOrRaceObject.grayedOutSetter(true);
                         }
                         break;
                     }
@@ -74,13 +74,13 @@ export default function IndividualCR({ ClassOrRaceObject, questionStateArray }) 
                 switch(questionStateArray[0]){
                     case 0:{
                         if(ClassOrRaceObject.faction !== Faction.Alliance && ClassOrRaceObject.faction !== Faction.Both){
-                            setGrayedOut(true);
+                            ClassOrRaceObject.grayedOutSetter(true);
                         }
                         break;
                     }
                     case 1:{
                         if(ClassOrRaceObject.faction !== Faction.Horde && ClassOrRaceObject.faction !== Faction.Both){
-                            setGrayedOut(true)
+                            ClassOrRaceObject.grayedOutSetter(true)
                         }
                         break;
                     }
@@ -91,13 +91,13 @@ export default function IndividualCR({ ClassOrRaceObject, questionStateArray }) 
                 switch(questionStateArray[3]){
                     case 0:{
                         if(ClassOrRaceObject.isHairy === false){
-                            setGrayedOut(true);
+                            ClassOrRaceObject.grayedOutSetter(true);
                         }
                         break;
                     }
                     case 1:{
                         if(ClassOrRaceObject.isHairy === true){
-                            setGrayedOut(true);
+                            ClassOrRaceObject.grayedOutSetter(true);
                         }
                         break;
                     }
@@ -108,13 +108,13 @@ export default function IndividualCR({ ClassOrRaceObject, questionStateArray }) 
                 switch(questionStateArray[4]){
                     case 0: {
                         if(ClassOrRaceObject.isTall === false){
-                            setGrayedOut(true);
+                            ClassOrRaceObject.grayedOutSetter(true);
                         }
                         break;
                     }
                     case 1:{
                         if(ClassOrRaceObject.isTall === true){
-                            setGrayedOut(true);
+                            ClassOrRaceObject.grayedOutSetter(true);
                         }
                         break;
                     }
@@ -128,7 +128,7 @@ export default function IndividualCR({ ClassOrRaceObject, questionStateArray }) 
 
     return <>
         {
-            !isGrayedOut
+            !ClassOrRaceObject.grayedOutState
                 ?
                 <div className="racesTableMember">
                     <img className="CR-Icon" src={ClassOrRaceObject.icon} alt={ClassOrRaceObject.name} title={ClassOrRaceObject.name} />
