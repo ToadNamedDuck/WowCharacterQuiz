@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Quiz from "../../Components/Quiz";
 import "styles.css"
 import CRHighlightTable from "../../Components/ClassRaceTable/CRHighlightTable";
+import ConfirmChoices from "../../Components/ClassRaceTable/ConfirmChoices";
 
 export class Question {
   qText = "";
@@ -202,10 +203,25 @@ const allRaces = [Human, Dwarf, NightElf, Gnome, Draenei, Worgen, VoidElf, Light
     setAnswerArray([q1Answer, q2Answer, q3Answer, q5Answer, q6Answer, q7Answer])
   },[q1Answer, q2Answer, q3Answer, q5Answer, q6Answer, q7Answer])
 
+  //Make a stateful array of classes and races grayed out state.
+  const [classGrayedOutStates,setClassGrayedOuts] = useState([dkGray,dhGray,druidGray,evokerGray,hunterGray,mageGray,monkGray,paladinGray,priestGray,rogueGray,shamanGray,warlockGray,warriorGray]);
+
+  useEffect(() => {
+    setClassGrayedOuts([dkGray,dhGray,druidGray,evokerGray,hunterGray,mageGray,monkGray,paladinGray,priestGray,rogueGray,shamanGray,warlockGray,warriorGray])
+  },[dkGray,dhGray,druidGray,evokerGray,hunterGray,mageGray,monkGray,paladinGray,priestGray,rogueGray,shamanGray,warlockGray,warriorGray])
+
+  const [raceGrayedOutStates,setRaceGrayedOuts] = useState([belfGray,dIDwarfGray,dracGray,draeneiGray,dwarfGray,gnomeGray,goblinGray,hmTaurenGray,humanGray,ktGray,lfDraeneiGray,magharGray,mechaGray,nelfGray,orcGray,pandaGray,taurenGray,trollGray,undeadGray,velfGray,vulperaGray,zandiGray]);
+
+  useEffect(() => {
+    setRaceGrayedOuts([belfGray,dIDwarfGray,dracGray,draeneiGray,dwarfGray,gnomeGray,goblinGray,hmTaurenGray,humanGray,ktGray,lfDraeneiGray,magharGray,mechaGray,nelfGray,orcGray,pandaGray,taurenGray,trollGray,undeadGray,velfGray,vulperaGray,zandiGray])
+  },[belfGray,dIDwarfGray,dracGray,draeneiGray,dwarfGray,gnomeGray,goblinGray,hmTaurenGray,humanGray,ktGray,lfDraeneiGray,magharGray,mechaGray,nelfGray,orcGray,pandaGray,taurenGray,trollGray,undeadGray,velfGray,vulperaGray,zandiGray])
+//We want to pass the stateful pieces to whichever component "calculates" what we should play.
 
   return <>
     <h1>WoW</h1>
     <Quiz questionArray={questionArray} />
     <CRHighlightTable QuestionStateArray={answerArray} arrayOfClassObjects={allClasses} arrayOfRaceObjects={allRaces}/>
+    {/* Place a component here with a big ole button that uses the state of valid races and classes to choose something for you. */}
+    <ConfirmChoices classGrayedOutStates={classGrayedOutStates} raceGrayedOutStates={raceGrayedOutStates}/>
   </>
 }
