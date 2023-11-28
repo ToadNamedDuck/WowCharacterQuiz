@@ -28,3 +28,30 @@
     height: 130px;
     overflow: hidden;
 }
+#unifiedTable{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#raceTable{
+    width: 100%;
+}
+#non-neutral-Races{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#AllianceRaces,#HordeRaces {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 780px;
+    max-height: 780px;
+}
+#HordeRaces{
+    flex-wrap: wrap-reverse;
+}
+#NeutralRaces{
+    display: flex;
+    justify-content: center;
+}
