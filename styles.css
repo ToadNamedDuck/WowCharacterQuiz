@@ -34,13 +34,12 @@
     align-items: center;
 }
 #raceTable{
-    width: 100%;
-}
-#non-neutral-Races{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    width: 100%;
 }
+
 #AllianceRaces,#HordeRaces {
     display: flex;
     flex-direction: column;
@@ -54,4 +53,5 @@
 #NeutralRaces{
     display: flex;
     justify-content: center;
+    align-self: flex-end;
 }
