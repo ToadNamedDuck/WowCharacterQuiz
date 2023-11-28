@@ -99,12 +99,12 @@ export class PlayableRace {
 }
 
 export default function Home() {
-  const [q1Answer, setQ1Answer] = useState(0);
-  const [q2Answer, setQ2Answer] = useState(0);
-  const [q3Answer, setQ3Answer] = useState(0);
-  const [q5Answer, setQ5Answer] = useState(0);
-  const [q6Answer, setQ6Answer] = useState(0);
-  const [q7Answer, setQ7Answer] = useState(0);
+  const [q1Answer, setQ1Answer] = useState(2);
+  const [q2Answer, setQ2Answer] = useState(3);
+  const [q3Answer, setQ3Answer] = useState(2);
+  const [q5Answer, setQ5Answer] = useState(2);
+  const [q6Answer, setQ6Answer] = useState(2);
+  const [q7Answer, setQ7Answer] = useState(2);
   const q1 = new Question("Do you have a preference for Alliance or Horde?", ["For the Alliance!", "For the Horde!", "I don't care who pays me."], setQ1Answer);
   const q2 = new Question("Do you prefer ranged or melee today?", ["Far away to send big damage", "I'm not a coward", "Actually, I'm a healer", "IDC"], setQ2Answer);
   const q3 = new Question("Do you want to think and press a lot of buttons while you play?", ["Complex classes are for me", "Hell no", "Next question please."], setQ3Answer);

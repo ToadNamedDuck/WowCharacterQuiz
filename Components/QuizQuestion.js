@@ -14,7 +14,7 @@ export default function QuizQuestion({ QuestionClassObj }) {
                                 count++;
                                 return <div key={QuestionClassObj.qText + `-${count}`}>
                                 {
-                                    count === 0?
+                                    count === QuestionClassObj.qChoices.length-1?
                                     <div className="labelRadioCombo">
                                         <label htmlFor={"Q-" + count}>{choice}</label>
                                         <input
