@@ -1,4 +1,4 @@
-export default function ConfirmChoices({ classGrayedOutStates, raceGrayedOutStates, showSelf }) {
+export default function ConfirmChoices({ classGrayedOutStates, raceGrayedOutStates, showSelf, setResult ,setShowResult }) {
     function buttonOnClick(e) {
         e.preventDefault();
         let validRaces = raceGrayedOutStates.filter(race => race.grayedOutState !== true);
@@ -14,6 +14,11 @@ export default function ConfirmChoices({ classGrayedOutStates, raceGrayedOutStat
             }
         }
         const selectedRace = narrowedRaces[Math.floor(Math.random() * narrowedRaces.length)]
+        const result = [selectedClass, selectedRace];
+        setResult(result)
+        setShowResult(true)
+
+
         console.log(`You should play a ${selectedRace.name} ${selectedClass.name}!`)
     }
     return <>

@@ -20,9 +20,6 @@ export class Question {
   }
 }
 
-//Races and classes are going to end up needing a list of answers that will cause them to gray out and become unselectable for our final generation.
-//Ideally, this is an array of either key value pairs or just values where the index (+1) correlates to the question number
-//Also means each image in our table down there will need to be a stateful component, which is fine by me.
 export class PlayableClass {
   name = "";
   icon = "";
@@ -42,7 +39,7 @@ export class PlayableClass {
     this.canHeal = canHealBool;
     this.grayedOutState = grayedState;
     this.grayedOutSetter = grayedSetter;
-  }//Maybe an array of specs - each spec can fit a certain critera like many or few buttons etc.
+  }
 }
 
 export class Position {
@@ -192,7 +189,6 @@ export default function Home() {
   const ZandalariTroll = new PlayableRace("Zandalari Troll", "RACE_Zandalari-Troll-M.png", [...nearlyUniversalClasses, Druid, Paladin, Shaman], Faction.Horde, false, true, zandiGray, zandiGrayedOutSetter);
 
   const allClasses = [Warrior, Hunter, Mage, Rogue, Priest, Warlock, Paladin, Druid, Shaman, Monk, DemonHunter, DeathKnight, Evoker];
-  //Organize the Alliance and Horde here into the order they appear in character creation. Also want to make Panda/Dracthyr their own div.
   const allRaces = [Human, Dwarf, NightElf, Gnome, Draenei, Worgen, VoidElf, LightforgedDraenei, DarkIronDwarf, KulTiran, Mechagnome, Orc, Undead, Tauren, Troll, BloodElf, Goblin, Nightborne, HighmountainTauren, MagharOrc, ZandalariTroll, Vulpera, Pandaren, Dracthyr];
 
   const questionArray = [q1, q2, q3, q5, q6, q7];
@@ -203,7 +199,7 @@ export default function Home() {
   }, [q1Answer, q2Answer, q3Answer, q5Answer, q6Answer, q7Answer])
 
   return <>
-    <h1>WoW</h1>
+    <h1>WoW Character Quiz</h1>
     <div id="mainContainer">
       <CRHighlightTable QuestionStateArray={answerArray} arrayOfClassObjects={allClasses} arrayOfRaceObjects={allRaces} />
       <Quiz questionArray={questionArray} classGrayedOutStates={allClasses} raceGrayedOutStates={allRaces} />
