@@ -7,7 +7,7 @@ import ConfirmChoices from "./ClassRaceTable/ConfirmChoices";
 import Result from "./Result";
 import { Faction } from "@/app/page";
 
-export default function Quiz({ questionArray, classGrayedOutStates, raceGrayedOutStates }) {
+export default function Quiz({ questionArray, answerArray, classGrayedOutStates, raceGrayedOutStates }) {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [backActive, setBackActive] = useState(false);
     const [forwardActive, setForwardActive] = useState(true);
@@ -50,7 +50,7 @@ export default function Quiz({ questionArray, classGrayedOutStates, raceGrayedOu
         <div id="QuizContainer">
             <h1>Let's ask about your playstyle preferences!</h1>
             {
-                <QuizQuestion key={`Question-${currentQuestion}`} QuestionClassObj={questionArray[currentQuestion]} />
+                <QuizQuestion key={`Question-${currentQuestion}`} questionArray={questionArray} answerArray={answerArray} QuestionClassObj={questionArray[currentQuestion]} />
             }
             {
                 result[0] !== null && showResult !== false ?

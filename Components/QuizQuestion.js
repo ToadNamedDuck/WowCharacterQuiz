@@ -1,7 +1,10 @@
 'use client'
 
-export default function QuizQuestion({ QuestionClassObj }) {
+import { useState } from "react";
 
+export default function QuizQuestion({ QuestionClassObj, questionArray, answerArray }) {
+
+    const [currentSelectedAnswer, setAnswer] = useState(answerArray[questionArray.indexOf(QuestionClassObj)])
     let count = -1;
     return <>
         {
@@ -14,7 +17,7 @@ export default function QuizQuestion({ QuestionClassObj }) {
                                 count++;
                                 return <div key={QuestionClassObj.qText + `-${count}`}>
                                 {
-                                    count === QuestionClassObj.qChoices.length-1?
+                                    currentSelectedAnswer === count ?
                                     <div className="labelRadioCombo">
                                         <label htmlFor={"Q-" + count}>{choice}</label>
                                         <input
@@ -22,7 +25,10 @@ export default function QuizQuestion({ QuestionClassObj }) {
                                             id={"Q-" + count}
                                             name={QuestionClassObj.qText}
                                             value={count}
-                                            onChange={(e) => QuestionClassObj.stateSetter(parseInt(e.target.value))}
+                                            onChange={(e) => {
+                                                QuestionClassObj.stateSetter(parseInt(e.target.value))
+                                                setAnswer(parseInt(e.target.value))
+                                            }}
                                             defaultChecked={true}
                                         />
                                     </div>
@@ -34,7 +40,10 @@ export default function QuizQuestion({ QuestionClassObj }) {
                                             id={"Q-" + count}
                                             name={QuestionClassObj.qText}
                                             value={count}
-                                            onChange={(e) => QuestionClassObj.stateSetter(parseInt(e.target.value))}
+                                            onChange={(e) => {
+                                                QuestionClassObj.stateSetter(parseInt(e.target.value))
+                                                setAnswer(parseInt(e.target.value))
+                                            }}
                                         />
                                     </div>
                                 }
