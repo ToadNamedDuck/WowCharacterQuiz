@@ -1,4 +1,4 @@
-export default function ConfirmChoices({ classGrayedOutStates, raceGrayedOutStates }) {
+export default function ConfirmChoices({ classGrayedOutStates, raceGrayedOutStates, showSelf }) {
     function buttonOnClick(e) {
         e.preventDefault();
         let validRaces = raceGrayedOutStates.filter(race => race.grayedOutState !== true);
@@ -17,6 +17,11 @@ export default function ConfirmChoices({ classGrayedOutStates, raceGrayedOutStat
         console.log(`You should play a ${selectedRace.name} ${selectedClass.name}!`)
     }
     return <>
-        <button onClick={(e) => buttonOnClick(e)}>Tell Me What To Play!!!</button>
+        {
+            showSelf ?
+                <button onClick={(e) => buttonOnClick(e)}>Tell Me What To Play!!!</button>
+                :
+                <button className="hidden">Tell Me What To Play!!!</button>
+        }
     </>
 }

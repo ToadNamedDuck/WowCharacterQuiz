@@ -51,12 +51,13 @@ export default function Quiz({ questionArray, classGrayedOutStates, raceGrayedOu
                 showFinish === false?
                 <div id="QuizButtonContainer">
                     <FBButtons direction={"back"} onClick={backButtonOnClick} activeState={backActive} />
+                    <ConfirmChoices classGrayedOutStates={classGrayedOutStates} raceGrayedOutStates={raceGrayedOutStates} showSelf={showFinish}/>
                     <FBButtons direction={"forward"} onClick={forwardButtonOnClick} activeState={forwardActive} />
                 </div>
                 :
                 <div id="QuizButtonContainer">
                     <FBButtons direction={"back"} onClick={backButtonOnClick} activeState={backActive} />
-                    <ConfirmChoices classGrayedOutStates={classGrayedOutStates} raceGrayedOutStates={raceGrayedOutStates}/>
+                    <ConfirmChoices classGrayedOutStates={classGrayedOutStates} raceGrayedOutStates={raceGrayedOutStates} showSelf={showFinish}/>
                     <FBButtons direction={"forward"} onClick={forwardButtonOnClick} activeState={forwardActive} />
                 </div>
             }
