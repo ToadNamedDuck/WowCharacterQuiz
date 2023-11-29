@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Quiz from "../../Components/Quiz";
 import "styles.css"
 import CRHighlightTable from "../../Components/ClassRaceTable/CRHighlightTable";
-import ConfirmChoices from "../../Components/ClassRaceTable/ConfirmChoices";
 
 export class Question {
   qText = "";
@@ -205,9 +204,7 @@ const allRaces = [Human, Dwarf, NightElf, Gnome, Draenei, Worgen, VoidElf, Light
 
   return <>
     <h1>WoW</h1>
-    <Quiz questionArray={questionArray} />
+    <Quiz questionArray={questionArray} classGrayedOutStates={allClasses} raceGrayedOutStates={allRaces}/>
     <CRHighlightTable QuestionStateArray={answerArray} arrayOfClassObjects={allClasses} arrayOfRaceObjects={allRaces}/>
-    {/* Place a component here with a big ole button that uses the state of valid races and classes to choose something for you. */}
-    <ConfirmChoices classGrayedOutStates={allClasses} raceGrayedOutStates={allRaces}/>
   </>
 }
