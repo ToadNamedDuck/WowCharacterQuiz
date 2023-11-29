@@ -17,9 +17,6 @@ export default function ConfirmChoices({ classGrayedOutStates, raceGrayedOutStat
         const result = [selectedClass, selectedRace];
         setResult(result)
         setShowResult(true)
-
-
-        console.log(`You should play a ${selectedRace.name} ${selectedClass.name}!`)
     }
     return <>
         {

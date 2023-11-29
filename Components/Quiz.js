@@ -37,6 +37,7 @@ export default function Quiz({ questionArray, classGrayedOutStates, raceGrayedOu
 
     function backButtonOnClick(e) {
         e.preventDefault();
+        setShowResult(false);
         setCurrentQuestion(currentQuestion - 1)
     }
 

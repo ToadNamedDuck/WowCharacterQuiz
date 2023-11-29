@@ -96,3 +96,26 @@ body{
     max-height: 100vh;
     overflow: hidden;
 }
+#result{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -15vh;
+    margin-bottom: .5vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    max-width: 33vw;
+    width: 33vw;
+    background-color: rgb(197, 197, 197);
+    border: solid 2px black;
+}
+.allianceText{
+    color: rgb(65, 65, 221);
+}
+.hordeText{
+    color: rgb(231, 43, 43);
+}
+.neutralText{
+    color: rgb(115, 57, 173);
+}
