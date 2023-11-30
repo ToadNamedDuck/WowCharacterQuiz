@@ -48,7 +48,6 @@ export default function Quiz({ questionArray, answerArray, classGrayedOutStates,
 
     return <>
         <div id="QuizContainer">
-            <h1>Let's ask about your playstyle preferences!</h1>
             {
                 <QuizQuestion key={`Question-${currentQuestion}`} questionArray={questionArray} answerArray={answerArray} QuestionClassObj={questionArray[currentQuestion]} />
             }

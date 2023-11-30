@@ -10,6 +10,7 @@ export default function QuizQuestion({ QuestionClassObj, questionArray, answerAr
         {
             QuestionClassObj !== undefined || QuestionClassObj !== null ?
                 <div className="individualQuestion">
+                    <h1>Let's ask about your playstyle preferences!</h1>
                     <h3>{QuestionClassObj.qText}</h3>
                     <div className="choices">
                         {

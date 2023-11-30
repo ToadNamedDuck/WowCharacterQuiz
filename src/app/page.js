@@ -199,7 +199,6 @@ export default function Home() {
   }, [q1Answer, q2Answer, q3Answer, q5Answer, q6Answer, q7Answer])
 
   return <>
-    <h1>WoW Character Quiz</h1>
     <div id="mainContainer">
       <CRHighlightTable QuestionStateArray={answerArray} arrayOfClassObjects={allClasses} arrayOfRaceObjects={allRaces} />
       <Quiz questionArray={questionArray} answerArray={answerArray} classGrayedOutStates={allClasses} raceGrayedOutStates={allRaces} />
