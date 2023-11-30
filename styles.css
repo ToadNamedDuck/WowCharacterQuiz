@@ -116,3 +116,44 @@ body{
 .neutralText{
     color: rgb(115, 57, 173);
 }
+.usageButtons{
+    background: rgb(204, 204, 204);
+    border: solid black 2px;
+    border-radius: 3px;
+    width: 2vw;
+    cursor: pointer;
+}
+.usageButtons:hover{
+    background: rgb(0, 132, 255);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.usageButtons::selection{
+    border: solid 2px rgb(0, 132, 255);
+}
+.usageButtons:disabled{
+    width: 2vw;
+    background-color: rgb(226, 226, 226);
+    border-color: gray;
+}
+.usageButtons:disabled::selection{
+    border-color: gray;
+}
+.usageButtons:disabled:hover{
+    background-color: inherit;
+    box-shadow: none;
+    cursor: default;
+    background-color: rgb(226, 226, 226);
+}
+.calculate{
+    background: rgb(204, 204, 204);
+    border: solid black 2px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.calculate:hover{
+    background: rgb(0, 132, 255);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.calculate::selection{
+    border: solid 2px rgb(0, 132, 255);
+}

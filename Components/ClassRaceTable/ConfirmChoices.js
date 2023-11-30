@@ -21,7 +21,7 @@ export default function ConfirmChoices({ classGrayedOutStates, raceGrayedOutStat
     return <>
         {
             showSelf ?
-                <button onClick={(e) => buttonOnClick(e)}>Tell Me What To Play!!!</button>
+                <button className="calculate" onClick={(e) => buttonOnClick(e)}>Tell Me What To Play!!!</button>
                 :
                 <button className="hidden">Tell Me What To Play!!!</button>
         }
